@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sakirahassan/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sakirahassan/docker-react npm run test
